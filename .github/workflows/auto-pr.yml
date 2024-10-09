@@ -15,8 +15,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.email "abcd@example.com"
-          git config --global user.name "gimgit"
+          git config --global user.email "heekyung.kim@tridge.com"
+          git config --global user.name "Heekyung Kim"
 
       - name: Create Pull Request to Upstream
         uses: peter-evans/create-pull-request@v4
