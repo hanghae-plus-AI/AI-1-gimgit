@@ -18,11 +18,12 @@ jobs:
           git config --global user.email "heekyung.kim@tridge.com"
           git config --global user.name "Heekyung Kim"
 
-      - name: Create Pull Request to Upstream
+            - name: Create Pull Request to Fork
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          base: main  # Base branch of the original repository
-          head: gimgit:main  # Your fork's branch
-          title: "Auto PR: Sync changes from copied repository"
-          body: "This PR was automatically created to sync changes from my fork to the upstream repository."
+          base: main  # The base branch in the fork (gimgit/AI-1-gimgit main branch).
+          head: hanghae-plus-AI:main  # Your original repo's branch (origin main branch).
+          repo: gimgit/AI-1-gimgit  # The forked repository where the PR will be created.
+          title: "Auto PR: Sync changes from origin to fork"
+          body: "This PR was automatically created to sync changes from the origin repository."
