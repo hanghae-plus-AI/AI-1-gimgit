@@ -131,12 +131,14 @@ with training_args.main_process_first(desc="grouping texts together"):
         num_proc=args.num_workers
     )
     
-train_dataset = lm_datasets["train"]
+train_split = lm_datasets['train'].train_test_split(test_size=0.2)
+train_dataset, eval_dataset = train_split["train"], train_split["test"]
 
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=train_dataset,
+    eval_dataset=eval_dataset,
     tokenizer=tokenizer,
     data_collator=default_data_collator
 )
